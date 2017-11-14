@@ -21,7 +21,7 @@
             </div>
                 
                 <div class="col-md-5 col-md-offset-0 ">
-                    <div class="panel panel-info ">
+                    <div class=" panel panel-primary ">
                         <div class="panel-heading">
                             <h3 class="panel-title">Datos academicos</h3>
                         </div>
