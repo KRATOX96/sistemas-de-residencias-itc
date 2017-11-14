@@ -21,12 +21,12 @@
 
   
 
-<div class="encabezado col-md-12 col-md-offset-1 " id="contenedor">
+<div class="encabezado col-md-10 col-md-offset-1 " id="contenedor">
                 <div class="logo-tnm">
                     <img src="https://sitec.itculiacan.edu.mx/wp-content/themes/fuente/images/header-sep.png"></a>
                 </div>
-                <div class="text-tnm">
-                    <h3>Tecnológico Nacional de México</h3>
+                <div class="text-tnm" >
+                    <h3 style="line-height: 0.5 !important">Tecnológico Nacional de México</h3>
                     <h4>Instituto Tecnológico de Culiacán</h4>
                 </div>
                 <div class="logo">
