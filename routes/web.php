@@ -20,3 +20,4 @@ Route::get('/',function()
 	return view('auth.login');
 });
 Route::get('/panel','PanelController@index');
+Route::get('/cambioContraseña','CambioPasw@index');

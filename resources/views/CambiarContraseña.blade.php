@@ -10,14 +10,10 @@
         </div>
 
         <div class="row">
-            <div class="col-md-1 col-md-offset-2">
-                 <img src="https://icon-icons.com/icons2/317/PNG/512/user-male-icon_34332.png" alt="perfil" class="img-rounded" alt="Cinque Terre" width="100" height="100" style="border: 2px solid silver;">
-
-                <b>        
-                    <p class="text-primary">Numero de control</p>
-                    <p class="text-primary">Nombres</p>
-                    <p class="text-primary">Apellidos</p>
-                </b>
+            <div class="col-md-2 col-md-offset-2" >
+                
+                <b><p class="text-primary" style="text-align:center">Cambiar Contraseña</p> </b>
+                <p style="text-align:center">Aqui Cambia tu contraseña por una que recuerdes con mas facilidad.</p>
             </div>
                 
                 <div class="col-md-5 col-md-offset-0 ">
