@@ -45,6 +45,13 @@
                                                 <input type="password" class="form-control" id="RepitPasword" placeholder="Repite Contraseña">
                                               </div>
                                 </div>
+
+                                <div class="form-group">
+                                  <div class="col-lg-8 col-lg-offset-5">
+                                    <button type="submit" class="btn btn-primary" ">Cambiar </button>
+                                  </div>
+                                </div>
+
                               </fieldset>
                             </form>
                         </div>

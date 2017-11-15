@@ -21,3 +21,4 @@ Route::get('/',function()
 });
 Route::get('/panel','PanelController@index');
 Route::get('/cambioContraseña','CambioPasw@index');
+Route::get('/solicitarResidencia','solicitarResidencia@index');
