@@ -13,7 +13,10 @@
 
 
 Auth::routes();
-
+Route::get('/registro',function()
+{
+	return view('auth/register');
+});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/',function()
 {
@@ -23,3 +26,6 @@ Route::get('/panel','PanelController@index');
 Route::get('/cambioContraseña','CambioPasw@index');
 Route::get('/solicitarResidencia','solicitarResidencia@index');
 Route::get('/crearProyecto','CrearProyecto@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
