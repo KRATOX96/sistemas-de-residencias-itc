@@ -6,10 +6,10 @@
 <div class="container" >
     <div class="row">
         <div class="col-md-8 col-md-offset-0" >
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Acceso</div>
 
-                <div class="panel-body">
+                <div class="panel-body" >
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class=" col-md-4 col-md-offset-0" id="">
-  <div class="well">
+  <div class="well " style="back">
     <h2>Bienvenidos a SITEC</h1>
   <p>Bienvenidos al sistema de residencias del instituto tecnologico de culiacan, recuerden dejar su like, siganos en twitter youtube y por todas nuestras redes sociales :v</p>
 </div>
