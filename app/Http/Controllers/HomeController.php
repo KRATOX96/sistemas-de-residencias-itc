@@ -26,8 +26,26 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function redirect()
+    {
+            if(auth()->user()->tipoid ==1)
+                return redirect('crearProyecto');
+
+            if(auth()->user()->tipoid ==2)
+                return redirect('panel');
+
+            if(auth()->user()->tipoid ==3)
+                return redirect('solicitudes');
+
+            if(auth()->user()->tipoid ==4)
+                return redirect('calificar'); 
+
+            if(auth()->user()->tipoid ==5)
+                return redirect('comprobante'); 
+    }
+
     public function panel()
     {
-        return view ('Panel');
+        return view('panel');
     }
 }

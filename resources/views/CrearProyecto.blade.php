@@ -19,7 +19,7 @@
                 <div class="col-md-5  ">
                     <div class="panel panel-primary ">
                         <div class="panel-heading">
-                            <h3 class="panel-title" style="margin-left:50px ;">Solicitar residencia</h3>
+                            <h3 class="panel-title" style="margin-left:20px ;">CrearProyecto</h3>
                         </div>
 
                         <div class="panel-body " style="background-color:#F0F8FF;" >
