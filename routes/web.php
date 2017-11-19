@@ -27,9 +27,16 @@ Route::group(['middleware'=>'JEP'],function (){
 Route::get('/crearProyecto','CrearProyecto@index');
 });
 
+
+Route::get('/instrucciones','instrucciones@index')->middleware('auth');;
+Route::get('/notificaciones','notificaciones@index')->middleware('auth');;
+
+
+
 Route::group(['middleware'=>'Alumno'],function (){
 Route::get('/panel','HomeController@panel');
 Route::get('/solicitarResidencia','solicitarResidencia@index');
+Route::get('/avances','avances@index');
 });
 
 Route::group(['middleware'=>'Asesor'],function (){

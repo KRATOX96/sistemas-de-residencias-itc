@@ -9,7 +9,7 @@
             </div>
         </div>
 
-aqui va todo el cagadero(solicitudes)
+aqui va todo el cagadero(notificaciones)
 
 
 @endsection
