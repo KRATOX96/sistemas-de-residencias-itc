@@ -12,14 +12,18 @@
   <div class="container-fluid">
     <div class="navbar-nav" >
         <a class="navbar-brand" href="#">Mi panel</a>
-        <a class="navbar-brand" href="#">Cambiar contraseña</a>
         <a class="navbar-brand" href="#">Solicitar residencia</a>
         <a class="navbar-brand" href="#">Notificaciones</a>
         <a class="navbar-brand" href="#">Instrucciones</a>
         <a class="navbar-brand" href="#">Avances</a>
-        <a class="navbar-brand" href="{{ route('logout') }}"                                             onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-        Salir</a>
     </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <a class="navbar-brand" href="{{ route('logout') }}"                                             onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                Salir</a>
+            </ul>
+        </div>
   </div>
 </nav>
