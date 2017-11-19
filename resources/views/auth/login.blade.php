@@ -1,52 +1,60 @@
+
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-            <div class="panel panel-default">
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-8 col-md-offset-0">
 
-                <div class="panel-body" >
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-
-                            <div class="col-md-6">
-
-                                @if ($errors->has('USUARIO'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('USUARIO') }}</strong>
-                                    </span>
-                                @endif
+                <div class="panel panel-primary" >
+                    <div class="panel-heading">Acceso</div>
+                        <div class="panel-body" >
+                        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                            {{ csrf_field() }}
+            
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <label for="email" class="col-md-4 control-label" >Usuario</label>
+                                <div class="col-md-6">
+                                   <input id="email" type="email" placeholder="Introduce tu usuario" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                 
+                                    @if ($errors->has('USUARIO'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('USUARIO') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <label for="password" class="col-md-4 control-label">Contraseña</label>
+                                <div class="col-md-6">
+                                 <input id="password" placeholder="Introduce tu contraseña" type="password" class="form-control" name="password" required>
 
-                            <div class="col-md-6">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recordar
                                     </label>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                </button>
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">Iniciar sesión
+                                    </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    ¿Olvidaste tu contraseña?
                                 </a>
                             </div>
                         </div>
@@ -54,6 +62,13 @@
                 </div>
             </div>
         </div>
-    </div>
+        <div class=" col-md-4 col-md-offset-0" id="">
+  <div class="well " style="back">
+    <h2>Bienvenidos a SITEC</h1>
+  <p>Bienvenidos al sistema de residencias del instituto tecnologico de culiacan, recuerden dejar su like, siganos en twitter youtube y por todas nuestras redes sociales :v</p>
 </div>
+    </div>
+
+</div>
+
 @endsection
