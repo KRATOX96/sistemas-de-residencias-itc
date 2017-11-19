@@ -17,7 +17,9 @@
         <a class="navbar-brand" href="#">Notificaciones</a>
         <a class="navbar-brand" href="#">Instrucciones</a>
         <a class="navbar-brand" href="#">Avances</a>
-        <a class="navbar-brand" href="#">Salir</a>
+        <a class="navbar-brand" href="{{ route('logout') }}"                                             onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+        Salir</a>
     </div>
   </div>
 </nav>
