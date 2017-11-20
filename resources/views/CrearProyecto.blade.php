@@ -43,7 +43,7 @@
                                 <div class="form-group">
                                   <label for="textArea" class="col-lg-6 control-label " style="text-align:left">Descripción:</label>
                                   <div class="col-lg-10">
-                                    <textarea class="form-control" rows="3" id="textArea"></textarea>
+                                    <textarea class="form-control" rows="1" id="textArea"></textarea>
                                   </div>
                                 </div>
 

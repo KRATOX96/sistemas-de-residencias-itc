@@ -13,7 +13,6 @@
     <div class="navbar-nav" >
         @if(auth()->user()->tipoid ==1)
       <a class="navbar-brand" href="{{url('/crearProyecto')}}">crearProyecto</a>
-        <a class="navbar-brand" href="{{url('/notificaciones')}}">Notificaciones</a>
         <a class="navbar-brand" href="{{url('/instrucciones')}}">Instrucciones</a>
         @endif
 
