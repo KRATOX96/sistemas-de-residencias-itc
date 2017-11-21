@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>'JEP'],function (){
 Route::get('/crearProyecto','CrearProyecto@index');
+Route::post('/crearProyecto','CrearProyecto@post');
 });
 
 
