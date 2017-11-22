@@ -11,7 +11,7 @@
 
         <div class="row">
             <div class="col-md-2 col-md-offset-2" >
-                
+
                 <b><p class="text-primary" style="text-align:center">Instrucciones:</p> </b>
                 <p style="text-align:left">En esta ventana usted podra  integrar un nuevo proyecto al banco de proyectos, por favor rellene los campos de texto, y a continuacion pulse en el boton aceptar.</p>
             </div>
@@ -26,39 +26,55 @@
                             <form action="" method="POST" class="form-horizontal">
 
                               <fieldset>
+                              @if ($message = Session::get('mensaje'))
+                                  <div class="alert alert-success alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                                          <strong>{{ $message }}</strong>
+                                  </div>
+                                  @endif
+                                  
+                              @if ($errors->any())
+                                  <div class="alert alert-danger">
+                                      <ul>
+                                          @foreach ($errors->all() as $error)
+                                              <li>{{ $error }}</li>
+                                          @endforeach
+                                      </ul>
+                                  </div>
+                              @endif
                                 {{ csrf_field()}}
                                 <div class="form-group">
                                               <label for="" class="col-lg-10 control-label" style="text-align:left;">Numero de alumnos requeridos:</label>
                                               <div class="col-lg-4">
-                                                <input type="text" class="form-control" id="nAlumnos" placeholder="" name="nAlumnos">
+                                                <input type="text" class="form-control" id="nAlumnos" placeholder="" name="nAlumnos" value="{{ old('nalumnos')}}">
                                               </div>
                                 </div>
                                 
                                 <div class="form-group">
-                                  <label for="" class="col-lg-6 control-label" style="text-align:left">Nombre del proyecto:</label>
+                                  <label for="" class="col-lg-6 control-label" style="text-align:left;">Nombre del proyecto:</label>
                                   <div class="col-lg-8 ">
-                                    <input type="text" class="form-control" id="NombreProyecto" placeholder="" name="NombreProyecto" >
+                                    <input type="text" class="form-control" id="NombreProyecto" placeholder="" name="NombreProyecto" value="{{ old('NombreProyecto')}}">
                                   </div>
                                 </div>
 
                                 <div class="form-group">
-                                              <label for="" class="col-lg-6 control-label">Lugar de realizacion de residencias:</label>
+                                              <label for="" class="col-lg-6 control-label" style="text-align:left;">Lugar de realizacion de residencias:</label>
                                               <div class="col-lg-8">
-                                                <input type="text" class="form-control" id="Lugar" placeholder="" name="Lugar">
+                                                <input type="text" class="form-control" id="Lugar" placeholder="" name="Lugar" value="{{ old('Lugar')}}">
                                               </div>
                                 </div>
 
                                 <div class="form-group">
                                   <label for="textArea" class="col-lg-6 control-label " style="text-align:left">Descripción:</label>
                                   <div class="col-lg-10">
-                                    <textarea class="form-control" rows="2" id="textArea" name="textArea"></textarea>
+                                    <textarea class="form-control" rows="2" id="textArea" name="textArea">{{ old('textArea')}}</textarea>
                                   </div>
                                 </div>
 
                                 <div class="form-group">
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Carrera requerida :</label>
                                   <div class="col-lg-8 ">
-                                    <select type="text" class="form-control" id="carrera" name="carrera">
+                                    <select type="text" class="form-control" id="carrera" name="carrera" value="{{ old('carrera')}}">
                                       @foreach($carreras as $carrera)
                                         <option value="{{$carrera->CARRERAID }}">{{$carrera->CARRERANOMBRE}}</option>
                                       @endforeach
@@ -69,7 +85,7 @@
                                 <div class="form-group">
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Semestres necesarios:</label>
                                   <div class="col-lg-8 ">
-                                    <select type="text" class="form-control" id="semestres" name="semestres">
+                                    <select type="text" class="form-control" id="semestres" name="semestres" value="{{ old('semestres')}}">
                                     <option value="6">6</option>
                                     <option value="7">7</option>
                                     <option value="8">8</option>
@@ -85,9 +101,9 @@
                                     <button type="submit" class="btn btn-primary" ">Aceptar </button>
                                   </div>
                                 </div>
-                                
 
 
+                              
 
                               </fieldset>
                             </form>
