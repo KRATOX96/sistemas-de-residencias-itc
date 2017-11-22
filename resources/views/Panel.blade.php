@@ -26,12 +26,14 @@
                             <h3 class="panel-title">Datos academicos</h3>
                         </div>
                         <div class="panel-body " style="background-color:#F0F8FF; ">
-                            <p><b>Carrera:</b> (11)ING.SIST.COMP..</p>
+                            <p><b>Carrera:</b> </p>
                             <p><b>Plan de estudios:</b> (f)ISIC-2010-224 DE 260 CREDITOS</p>
-                            <p><b>Modulo de especialidad:</b> (2)INGENIERIA DE SOFTWARE</p>
                             <p><b>Creditos acumulados:</b> 190</p>
-                            <p><b>Situacion de vigencia:</b> VIGENTE</p>
                             <p><b>Periodo Actual o Ultimo:</b> Semestre 7 (2173) AGO-DIC17</p>
+                            <p><b>Servicion social:</b>Terminado</p>
+                            <p><b>Actividades complementarias:</b>Terminadas</p>
+                            <p><b>Situacion escolar:</b>Regular</p>
+
                         </div>
                     </div>
                 </div>
