@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -46,6 +47,7 @@ class HomeController extends Controller
 
     public function panel()
     {
-        return view('panel');
+        $alumnos = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first();    
+         return view('panel')->with(compact('alumnos'));
     }
 }
