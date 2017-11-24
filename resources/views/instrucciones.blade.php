@@ -9,7 +9,7 @@
             </div>
         </div>
 
-aqui va todo el cagadero(instrucciones)
+ESTA PAGINA SE ENCUENTRA EN DESARROLLO(instrucciones)
 
 
 @endsection

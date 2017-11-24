@@ -7,6 +7,9 @@
     height: 40px !important;
 }
 </style>
+<link rel="stylesheet" href="css/sweetalert.css">
+    <script src="js/sweetalert.min.js"></script>
+
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">

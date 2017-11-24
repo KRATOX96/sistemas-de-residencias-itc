@@ -13,6 +13,8 @@
     <!-- Styles -->
 <link href="{{ URL::asset('css/principal.css') }}" rel="stylesheet">
 
+
+
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
 </head>

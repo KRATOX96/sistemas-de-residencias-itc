@@ -23,17 +23,26 @@
                         </div>
 
                         <div class="panel-body " style="background-color:#F0F8FF;" >
+                              @if ($errors->any())
+                                  <div class="alert alert-danger">
+                                      <ul>
+                                          @foreach ($errors->all() as $error)
+                                              <li>{{ $error }}</li>
+                                          @endforeach
+                                      </ul>
+                                  </div>
+                              @endif
+                                {{ csrf_field()}}
                             <form class="form-horizontal">
                               <fieldset>
                                 <div class="form-group">
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Seleccionar proyecto:</label>
                                   <div class="col-lg-8 ">
                                     <select type="text" class="form-control" id="NombreProyecto" >
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    @foreach($proyectos as $proyecto)
+                                        <option value="{{$proyecto->PROYECTOID }}">{{$proyecto->PROYECTONOMBRE}}</option>
+                                      @endforeach
+
                                     </select>
                                   </div>
                                 </div>
@@ -46,7 +55,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                              <label for="" class="col-lg-6 control-label">Lugar de realizacion de residencias:</label>
+                                              <label for="" class="col-lg-6 control-label" style="text-align:left">Lugar de realizacion de residencias:</label>
                                               <div class="col-lg-8">
                                                 <input type="text" class="form-control" id="Lugar" placeholder="" disabled="">
                                               </div>
