@@ -16,7 +16,7 @@
       <a class="navbar-brand" href="{{url('/crearProyecto')}}">crearProyecto</a>
         <a class="navbar-brand" href="{{url('/instrucciones')}}">Instrucciones</a>
         @endif
-
+        
              @if(auth()->user()->tipoid ==2)
             <a class="navbar-brand" href="{{url('/panel')}}">Mi panel</a>
             <a class="navbar-brand" href="{{url('/solicitarResidencia')}}">Solicitar residencia</a>
@@ -52,7 +52,9 @@
                 Salir</a>
             </ul>
         </div>
+
   </div>
-  
+
+
 
 </nav>

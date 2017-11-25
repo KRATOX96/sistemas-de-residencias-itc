@@ -39,6 +39,7 @@
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Seleccionar proyecto:</label>
                                   <div class="col-lg-8 ">
                                     <select type="text" class="form-control" id="NombreProyecto" >
+                                      <option value="">Seleccione un proyecto</option>
                                     @foreach($proyectos as $proyecto)
                                         <option value="{{$proyecto->PROYECTOID }}">{{$proyecto->PROYECTONOMBRE}}</option>
                                       @endforeach
@@ -81,4 +82,7 @@
                 </div>
 
 
+@endsection
+@section('scripts')
+<script src="/js/usuarios/edit.js"></script>
 @endsection

@@ -24,4 +24,9 @@ class SolicitarResidencia extends Controller
   
          return view('SolicitarResidencia')->with(compact('alumnos','proyectos','validaciones'));
     }
+
+    public function infoProyecto($id)
+    {
+        return $proyecto = DB::table('proyectos')->where('PROYECTOID',$id)->first(); 
+    }
 }

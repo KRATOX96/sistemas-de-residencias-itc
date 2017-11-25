@@ -136,7 +136,7 @@ return [
     */
 
     'providers' => [
-
+        'Laracasts\Utilities\JavaScript\JavaScriptServiceProvider',
         /*
          * Laravel Framework Service Providers...
          */

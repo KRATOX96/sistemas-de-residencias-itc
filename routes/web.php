@@ -38,6 +38,7 @@ Route::group(['middleware'=>'Alumno'],function (){
 Route::get('/panel','HomeController@panel');
 Route::get('/solicitarResidencia','solicitarResidencia@index');
 Route::get('/avances','avances@index');
+Route::get('solicitarResidencia/{id}/info','SolicitarResidencia@infoProyecto');
 });
 
 Route::group(['middleware'=>'Asesor'],function (){
