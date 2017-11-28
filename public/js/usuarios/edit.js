@@ -18,6 +18,10 @@ function onSelectProyect()
 	$('#textArea').val(''+data[0].PROYECTODESCRIPCION);
 	});
 }
+
+
 }
+
+
 
 

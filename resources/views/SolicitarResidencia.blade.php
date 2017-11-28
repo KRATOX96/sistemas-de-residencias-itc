@@ -22,7 +22,7 @@
                             <h3 class="panel-title" style="margin-left:50px ;">Solicitar residencia</h3>
                         </div>
 
-                        <div class="panel-body " style="background-color:#F0F8FF;" >
+                        <div class="panel-body " style="background-color:#F0F8FF;"  >
                               @if ($alumnos->creditos<208|| $alumnos->actividadesC!='acreditadas' ||$alumnos->situacionE=='especial'||$alumnos->servicioS!='acreditado' )
                                   <div class="alert alert-danger">
                                       <ul>
@@ -42,7 +42,7 @@
                                           @if($alumnos->servicioS!='acreditado')
                                            <li>Servicio escolar no acreditado</li>
                                           @endif
-
+                                            
                                       </ul>
                                   </div>
                               @endif
@@ -53,7 +53,7 @@
                                 <div class="form-group">
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Seleccionar proyecto:</label>
                                   <div class="col-lg-8 ">
-                                    <select type="text" class="form-control" id="NombreProyecto" >
+                                    <select type="text" class="form-control" id="NombreProyecto"  >
                                       <option value="">Seleccione un proyecto</option>
                                     @foreach($proyectos as $proyecto)
                                         <option value="{{$proyecto->PROYECTOID }}">{{$proyecto->PROYECTONOMBRE}}</option>
@@ -62,6 +62,9 @@
                                     </select>
                                   </div>
                                 </div>
+                                 @if ($alumnos->creditos<208|| $alumnos->actividadesC!='acreditadas' ||$alumnos->situacionE=='especial'||$alumnos->servicioS!='acreditado' )
+                                    <script > document.getElementById("NombreProyecto").disabled = true;</script>
+                                @endif
 
                                 <div class="form-group">
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Nombre del proyecto:</label>
