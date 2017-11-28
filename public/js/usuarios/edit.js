@@ -1,7 +1,7 @@
 $(function()
 {
 	$('#NombreProyecto').on('change',onSelectProyect);
-	if()
+	
 
 });
 

@@ -23,15 +23,30 @@
                         </div>
 
                         <div class="panel-body " style="background-color:#F0F8FF;" >
-                              @if ($errors->any())
+                              @if ($alumnos->creditos<208|| $alumnos->actividadesC!='acreditadas' ||$alumnos->situacionE=='especial'||$alumnos->servicioS!='acreditado' )
                                   <div class="alert alert-danger">
                                       <ul>
-                                          @foreach ($errors->all() as $error)
-                                              <li>{{ $error }}</li>
-                                          @endforeach
+                                          Usted no cumple con los requisitos para solicitar la residencia:<br>
+                                          @if($alumnos->creditos<208)
+                                           <li>Creditos insuficientes</li>
+                                          @endif
+
+                                          @if($alumnos->actividadesC!='acreditadas')
+                                           <li>Actividades complementarias no acreditadas</li>
+                                          @endif
+
+                                          @if($alumnos->situacionE=='especial')
+                                           <li>Estas en especial</li>
+                                          @endif
+
+                                          @if($alumnos->servicioS!='acreditado')
+                                           <li>Servicio escolar no acreditado</li>
+                                          @endif
+
                                       </ul>
                                   </div>
                               @endif
+
                                 {{ csrf_field()}}
                             <form class="form-horizontal">
                               <fieldset>

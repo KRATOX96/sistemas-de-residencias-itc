@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\proyectos;
+use App\alumnos;
 class SolicitarResidencia extends Controller
 {
     public function index()
@@ -23,6 +24,7 @@ class SolicitarResidencia extends Controller
     	$proyectos=proyectos::all()->where('semestre','<=', $alumnos->semestre)->where('CARRERAID',$NombreCarrera->CARRERAID);
   
          return view('SolicitarResidencia')->with(compact('alumnos','proyectos','validaciones'));
+          
     }
 
     public function infoProyecto($id)
@@ -33,7 +35,7 @@ class SolicitarResidencia extends Controller
 
     public function infoAlumno($id)
     {
-       return alumnos::where('idusuario',auth()->user()->id)->get();   
+       return alumnos::where('idusuario',$id)->get();   
     }
 
 }

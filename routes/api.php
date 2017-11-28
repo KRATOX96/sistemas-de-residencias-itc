@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/proyecto/{id}/proyectosValidos','SolicitarResidencia@infoProyecto');
 
-Route::get('/alumno/info/','SolicitarResidencia@infoAlumno');
+Route::get('/alumno/{id}/infoAlumno/','SolicitarResidencia@infoAlumno');
