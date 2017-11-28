@@ -51,7 +51,7 @@
                                 <div class="form-group">
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Nombre del proyecto:</label>
                                   <div class="col-lg-8 ">
-                                    <input type="text" class="form-control" id="NombreProyecto" placeholder="" disabled="">
+                                    <input type="text" class="form-control" id="NombreP" placeholder="" disabled="">
                                   </div>
                                 </div>
 

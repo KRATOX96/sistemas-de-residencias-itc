@@ -16,3 +16,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/proyecto/{id}/proyectosValidos','SolicitarResidencia@infoProyecto');
+
+Route::get('/alumno/info/','SolicitarResidencia@infoAlumno');

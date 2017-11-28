@@ -27,6 +27,13 @@ class SolicitarResidencia extends Controller
 
     public function infoProyecto($id)
     {
-        return $proyecto = DB::table('proyectos')->where('PROYECTOID',$id)->first(); 
+       return proyectos::where('PROYECTOID',$id)->get();
+        
     }
+
+    public function infoAlumno($id)
+    {
+       return alumnos::where('idusuario',auth()->user()->id)->get();   
+    }
+
 }
