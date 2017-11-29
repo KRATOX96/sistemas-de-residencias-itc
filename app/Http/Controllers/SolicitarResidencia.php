@@ -51,9 +51,12 @@ class SolicitarResidencia extends Controller
         $proyecto=DB::table('proyectos')->where('PROYECTONOMBRE',$nombreP)->first();
         $proyectoId=$proyecto->PROYECTOID;
         $alumnos = alumnos::find($alumno->ALUMNID);
+        $proyectos = proyectos::find($proyecto->PROYECTOID);
         $alumnos->PROYECTOID=$proyectoId;
         $alumnos->ESTADO=1;
+        $proyectos->NUMERO_ALUMNOS=$proyectos->NUMERO_ALUMNOS-1;
         $alumnos->save();
+        $proyectos->save();
    }
 
 }
