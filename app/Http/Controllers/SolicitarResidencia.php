@@ -21,9 +21,16 @@ class SolicitarResidencia extends Controller
     	$NombreCarrera=$alumnos->CARRERANOMBRE;
     	$NombreCarrera;
     	$NombreCarrera=DB::table('carreras')->where('CARRERANOMBRE',$NombreCarrera)->first();
-    	$proyectos=proyectos::all()->where('semestre','<=', $alumnos->semestre)->where('CARRERAID',$NombreCarrera->CARRERAID);
-  
+    	$proyectos=proyectos::all()->where('semestre','<=', $alumnos->semestre)->where('CARRERAID',$NombreCarrera->CARRERAID)->where('NUMERO_ALUMNOS','>', 0);
+        if($alumnos->ESTADO==0)
+        {
          return view('SolicitarResidencia')->with(compact('alumnos','proyectos','validaciones'));
+        }
+        else
+        {
+            return view('avances')->with(compact('alumnos','proyectos','validaciones'));
+        }
+        
           
     }
 
@@ -37,5 +44,16 @@ class SolicitarResidencia extends Controller
     {
        return alumnos::where('idusuario',$id)->get();   
     }
+
+    public function post(Request $request){
+        $alumno = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
+        $nombreP=$request->input('NombreP');
+        $proyecto=DB::table('proyectos')->where('PROYECTONOMBRE',$nombreP)->first();
+        $proyectoId=$proyecto->PROYECTOID;
+        $alumnos = alumnos::find($alumno->ALUMNID);
+        $alumnos->PROYECTOID=$proyectoId;
+        $alumnos->ESTADO=1;
+        $alumnos->save();
+   }
 
 }

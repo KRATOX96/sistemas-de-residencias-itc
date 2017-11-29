@@ -20,6 +20,23 @@ function onSelectProyect()
 }
 
 
+
+}
+
+$(function()
+{
+	$('#aceptar').on('click',onClickAceptar);
+	
+
+});
+function onClickAceptar()
+{
+	var project_id=$('#NombreProyecto').val();
+	if(project_id!=0){
+ alert('su solicitud se llevo a cabo con exito!!');
+}
+else
+alert('No ha seleccionado ningun proyecto')
 }
 
 

@@ -47,8 +47,9 @@
                                   </div>
                               @endif
 
-                                {{ csrf_field()}}
-                            <form class="form-horizontal">
+                                
+                            <form class="form-horizontal" action="" method="POST" >
+
                               <fieldset>
                                 <div class="form-group">
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Seleccionar proyecto:</label>
@@ -65,11 +66,11 @@
                                  @if ($alumnos->creditos<208|| $alumnos->actividadesC!='acreditadas' ||$alumnos->situacionE=='especial'||$alumnos->servicioS!='acreditado' )
                                     <script > document.getElementById("NombreProyecto").disabled = true;</script>
                                 @endif
-
+                                {{ csrf_field()}}
                                 <div class="form-group">
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Nombre del proyecto:</label>
                                   <div class="col-lg-8 ">
-                                    <input type="text" class="form-control" id="NombreP" placeholder="" disabled="">
+                                    <input type="text" class="form-control" id="NombreP" name="NombreP" placeholder="" readonly="">
                                   </div>
                                 </div>
 
@@ -89,7 +90,8 @@
 
                                 <div class="form-group">
                                   <div class="col-lg-8 col-lg-offset-4">
-                                    <button type="submit" class="btn btn-primary" ">Aceptar </button>
+                                    <button type="submit" class="btn btn-primary" id="aceptar" method="post" >Aceptar </button>
+
                                   </div>
                                 </div>
 

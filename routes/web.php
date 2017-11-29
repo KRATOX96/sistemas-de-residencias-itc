@@ -39,6 +39,8 @@ Route::get('/panel','HomeController@panel');
 Route::get('/solicitarResidencia','solicitarResidencia@index');
 Route::get('/avances','avances@index');
 Route::get('solicitarResidencia/{id}/info','SolicitarResidencia@infoProyecto');
+Route::post('/solicitarResidencia','solicitarResidencia@post');
+Route::get('/proyecto/{id}/','SolicitarResidencia@getSolicitud');
 });
 
 Route::group(['middleware'=>'Asesor'],function (){
