@@ -57,6 +57,7 @@ class SolicitarResidencia extends Controller
         $proyectos->NUMERO_ALUMNOS=$proyectos->NUMERO_ALUMNOS-1;
         $alumnos->save();
         $proyectos->save();
+        return back();
    }
 
 }

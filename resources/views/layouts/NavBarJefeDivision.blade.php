@@ -19,10 +19,10 @@
         
              @if(auth()->user()->tipoid ==2)
             <a class="navbar-brand" href="{{url('/panel')}}">Mi panel</a>
-            <a class="navbar-brand" href="{{url('/solicitarResidencia')}}">Solicitar residencia</a>
+            <a class="navbar-brand" href="{{url('/solicitarResidencia')}}">Solicitud</a>
             <a class="navbar-brand" href="{{url('/notificaciones')}}">Notificaciones</a>
             <a class="navbar-brand" href="{{url('/instrucciones')}}">Instrucciones</a>
-            <a class="navbar-brand" href="{{url('/avances')}}">Avances</a>
+            <a class="navbar-brand" href="{{url('/avances')}}"></a>
         @endif
 
         @if(auth()->user()->tipoid ==3)
