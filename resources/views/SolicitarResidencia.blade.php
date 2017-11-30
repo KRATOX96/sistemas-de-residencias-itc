@@ -23,7 +23,7 @@
                         </div>
 
                         <div class="panel-body " style="background-color:#F0F8FF;"  >
-                              @if ($alumnos->creditos<208|| $alumnos->actividadesC!='acreditadas' ||$alumnos->situacionE=='especial'||$alumnos->servicioS!='acreditado' )
+                              @if ([$alumnos->creditos<208|| $alumnos->actividadesC!='acreditadas' ||$alumnos->situacionE=='especial'||$alumnos->servicioS!='acreditado'] && $alumnos->plan!='plan viejo')
                                   <div class="alert alert-danger">
                                       <ul>
                                           Usted no cumple con los requisitos para solicitar la residencia:<br>
@@ -46,6 +46,16 @@
                                       </ul>
                                   </div>
                               @endif
+                              @if($alumnos->plan=='plan viejo'&&$alumnos->creditos<202)
+                                  <div class="alert alert-danger">
+                                      <ul>
+                                          Usted no cumple con los requisitos para solicitar la residencia:<br>
+                                          @if($alumnos->creditos<202)
+                                           <li>Creditos insuficientes</li>
+                                          @endif
+                                      </ul>
+                                  </div>
+                              @endif
 
                                 
                             <form class="form-horizontal" action="" method="POST" >
@@ -65,6 +75,10 @@
                                 </div>
                                  @if ($alumnos->creditos<208|| $alumnos->actividadesC!='acreditadas' ||$alumnos->situacionE=='especial'||$alumnos->servicioS!='acreditado' )
                                     <script > document.getElementById("NombreProyecto").disabled = true;</script>
+                                @endif
+
+                                @if($alumnos->plan=='plan viejo'&&$alumnos->creditos>=202)
+                                  <script > document.getElementById("NombreProyecto").disabled = false;</script>
                                 @endif
                                 {{ csrf_field()}}
                                 <div class="form-group">
