@@ -23,7 +23,7 @@
                         </div>
 
                         <div class="panel-body " style="background-color:#F0F8FF;"  >
-                              @if ([$alumnos->creditos<208|| $alumnos->actividadesC!='acreditadas' ||$alumnos->situacionE=='especial'||$alumnos->servicioS!='acreditado'] && $alumnos->plan!='plan viejo')
+                              @if (($alumnos->creditos<208|| $alumnos->actividadesC!='acreditadas' ||$alumnos->situacionE=='especial'||$alumnos->servicioS!='acreditado') && $alumnos->plan!='plan viejo')
                                   <div class="alert alert-danger">
                                       <ul>
                                           Usted no cumple con los requisitos para solicitar la residencia:<br>

@@ -27,7 +27,7 @@
 			      <td>{{$alumno->CARRERANOMBRE}}</td>
 			      <td>{{$alumno->PROYECTONOMBRE}}</td>
 
-			      <td><a href="{{ route('asignarAsesor',['alumno'=>$alumno])}}" style=" color: black ;"><button class="btn  btn-skin-green btn-xs"  > <span class="glyphicon glyphicon-eye-open"></span>
+			      <td><a href="{{route('asignarAsesor',$alumno->NODECONTROL)}}" style=" color: black ;"><button class="btn  btn-skin-green btn-xs"  > <span class="glyphicon glyphicon-eye-open"></span>
         <span class="glyphicon-class">Ver</span></button></a></td>
 			    </tr>
 				@endforeach

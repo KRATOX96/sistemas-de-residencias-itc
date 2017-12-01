@@ -49,7 +49,7 @@ Route::get('/calificar','Calificar@index');
 
 Route::group(['middleware'=>'JDA'],function (){
 Route::get('/solicitudes','Solicitudes@listado1');
-Route::name('asignarAsesor')->get('/asignarAsesor','asignarAsesor@index');
+Route::name('asignarAsesor')->get('/asignarAsesor/{alumno}','asignarAsesor@index');
 });
 
 Route::group(['middleware'=>'JSE'],function (){
