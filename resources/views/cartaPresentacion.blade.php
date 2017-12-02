@@ -47,11 +47,54 @@
 						    </div>
 						</div>
 					</div>
+                <div class="modal fade " id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="row">
+
+                  <br>
+                            <div class="col-lg-10 col-md-offset-2 ">
+
+
+                                 <div class="form-group">
+                                  <label for="" class="col-lg-6 control-label" style="text-align:left">Nombre del proyecto:</label>
+                                  <div class="col-lg-10 ">
+                                    <input type="text" class="form-control" id="NombreP" name="NombreP" placeholder="" readonly="" value="{{  $alumno->PROYECTONOMBRE }}" style="margin-bottom: 20px">
+                    
+                                  </div>
+                                </div>
+
+                                            <div class="form-group">
+                                              <label for="" class="col-lg-10 control-label" style="text-align:left">Lugar de realizacion de residencias:</label>
+                                              <div class="col-lg-10">
+                                                <input type="text" class="form-control" id="Lugar" placeholder="" disabled="" value="{{  $alumno->PROYECTOLUGAR }}" style="margin-bottom: 20px">
+          
+                                              </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="textArea" class="col-lg-10 control-label " style="text-align:left">Descripción:</label>
+                                  <div class="col-lg-10">
+                                    <textarea class="form-control" rows="3" id="textArea" disabled="" value="" style="margin-bottom: 50px">{{  $alumno->PROYECTODESCRIPCION }}
+                                    </textarea>
+                                  </div>
+                                </div>
+
+                                </div>
+                            </div>   
+                  
+
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
         <div class="row">
             <div class="col-md-2 col-md-offset-2" >
                 
                 <b><p class="text-primary" style="text-align:center">Instrucciones:</p> </b>
-                <p style="text-align:left">En esta ventana usted podra asignar un asesor al alumno, por favor pulse sobre el cuadro de texto "seleccionar asesor",elija un asesor  y a continuacion pulse en el boton aceptar. si desea, tambien puede revisar la informacion del alumno pulsando en el boton detalles que esta ubicado a un lado de el numero de control.</p>
+                <p style="text-align:left">En esta ventana usted debe proporcionar una carta de presentacion al alumno, por favor pulse sobre el cuadro de texto "adjuntar archivo",elija un documento  y a continuacion pulse en el boton aceptar. si desea, tambien puede revisar la informacion del alumno pulsando en el boton detalles que esta ubicado a un lado de el numero de control o la informacion del proyecto pulsando igualmente, sobre el boton a un lado del nombre del proyecto.</p>
             </div>
 
 
@@ -62,7 +105,7 @@
                         </div>
                       
                         <div class="panel-body " style="background-color:#F0F8FF;"  >
-                            <form class="form-horizontal" action="" method="POST" >
+                            <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data" >
 
                               <fieldset>
                                 <div class="form-group">
@@ -101,31 +144,29 @@
                                     <input type="text" class="form-control" id="NombreP" name="NombreP" placeholder="" readonly="" value="{{  $alumno->PROYECTONOMBRE }}">
 										
                                   </div>
+                                  <div class="col-lg-4">
+
+                                    <a data-toggle="modal"  data-target="#modal2" style=" color: black ;align:center; "><button class="btn  btn-skin-green btn-xs"  > <span class="glyphicon glyphicon-eye-open"></span>
+                                     <span class="glyphicon-class">Ver</span></button></a>
+                                  </div>
                                 </div>
 
-                                <div class="form-group">
-                                              <label for="" class="col-lg-6 control-label" style="text-align:left">Lugar de realizacion de residencias:</label>
-                                              <div class="col-lg-8">
-                                                <input type="text" class="form-control" id="Lugar" placeholder="" disabled="" value="{{  $alumno->PROYECTOLUGAR }}">
-          
-                                              </div>
-                                </div>
 
-                                <div class="form-group">
-                                  <label for="textArea" class="col-lg-6 control-label " style="text-align:left">Descripción:</label>
-                                  <div class="col-lg-10">
-                                    <textarea class="form-control" rows="3" id="textArea" disabled="" value="">{{  $alumno->PROYECTODESCRIPCION }}
-                                    </textarea>
+                              <div class="form-group">
+                                  <div class="col-lg-8 col-lg-offset-1">
+                                    <input type="file" class="" id="archivo1" name="archivo1" > 
+
                                   </div>
                                 </div>
 
 
                                 <div class="form-group">
-                                  <div class="col-lg-8 col-lg-offset-4">
-                                    <button type="submit" class="btn btn-primary" id="aceptar" method="post" >Aceptar </button>
+                                  <div class="col-lg-8 col-lg-offset-3">
+                                    <button type="submit" class="btn btn-primary" id="aceptar"  >Aceptar </button>
 
                                   </div>
                                 </div>
+
 
                               </fieldset>
                             </form>
@@ -134,7 +175,4 @@
         </div>
 
 
-@endsection
-@section('scripts')
-<script src="/js/usuarios/asignarAsesor.js"></script>
 @endsection

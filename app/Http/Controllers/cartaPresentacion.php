@@ -29,19 +29,14 @@ class cartaPresentacion extends Controller
 
 
     public function post(Request $request){
-      /*  $NombreAsesor=$request->input('NombreAsesor');
-        if($NombreArchivo!='null'){
+        
         $NODECONTROL=$request->input('NODECONTROL');
-        $asesor=DB::table('asesores')->where('ASESORNOMBRE',$NombreAsesor)->first();
         $alumno= DB::table('alumnos')->where('NODECONTROL',$NODECONTROL)->first();
-        $ASESORID=$asesor->ASESORID;
         $alumnos = alumnos::find($alumno->ALUMNID);
-        $alumnos->ASESORID=$ASESORID;
+        $alumnos->archivo1=$request->file('archivo1')->store('public');;
         $alumnos->ESTADO=3;       
         $alumnos->save();
-        }
-        return back();
-   */
+     return back();
    }
 
 }
