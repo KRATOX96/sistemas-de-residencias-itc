@@ -51,7 +51,7 @@
             <div class="col-md-2 col-md-offset-2" >
                 
                 <b><p class="text-primary" style="text-align:center">Instrucciones:</p> </b>
-                <p style="text-align:left">En esta ventana usted podra asignar asesor al alumno, por favor pulse sobre el cuadro de texto "seleccionar asesor",elija un asesor  y a continuacion pulse en el boton aceptar. si desea, tambien puede revisar la informacion del alumno pulsando en el boton detalles que esta ubicado a un lado de el numero de control.</p>
+                <p style="text-align:left">En esta ventana usted podra asignar un asesor al alumno, por favor pulse sobre el cuadro de texto "seleccionar asesor",elija un asesor  y a continuacion pulse en el boton aceptar. si desea, tambien puede revisar la informacion del alumno pulsando en el boton detalles que esta ubicado a un lado de el numero de control.</p>
             </div>
 
 
@@ -72,10 +72,10 @@
                                 <div class="form-group">
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Seleccionar asesor:</label>
                                   <div class="col-lg-8 ">
-                                    <select type="text" class="form-control" id="NombreProyecto"  >
-                                      <option value="">Seleccione un asesor</option>
+                                    <select type="text" class="form-control" id="NombreAsesor" name="NombreAsesor"  >
+                                      <option value="null">Seleccione un asesor</option>
                                     @foreach($asesores as $asesor)
-                                        <option value="{{$asesor->ASESORNOMBRE}}">{{$asesores->ASESORNOMBRE}}</option>
+                                        <option value="{{$asesor->ASESORNOMBRE }}">{{$asesor->ASESORNOMBRE}}</option>
                                       @endforeach
 
                                     </select>
@@ -85,7 +85,7 @@
                                  <div class="form-group">
                                   <label for="" class="col-lg-6 control-label" style="text-align:left">Numero de control del alumno:</label>
                                   <div class="col-lg-8 ">
-                                    <input type="text" class="form-control" id="NombreP" name="NombreP" placeholder="" readonly="" value="{{  $alumno->NODECONTROL }}">
+                                    <input type="text" class="form-control" id="NODECONTROL" name="NODECONTROL" placeholder="" readonly="" value="{{  $alumno->NODECONTROL }}">
 										
                                   </div>
                                   	<div class="col-lg-4">
@@ -134,4 +134,7 @@
         </div>
 
 
+@endsection
+@section('scripts')
+<script src="/js/usuarios/asignarAsesor.js"></script>
 @endsection
