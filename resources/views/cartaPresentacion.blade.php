@@ -106,10 +106,17 @@
                       
                         <div class="panel-body " style="background-color:#F0F8FF;"  >
                             <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data" >
-
+                              
                               <fieldset>
+
                                 <div class="form-group">
                                   <div class="col-lg-12 ">
+                                    @if ($message = Session::get('info'))
+                                  <div class="alert alert-danger alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                                          <strong>{{ $message }}</strong>
+                                  </div>
+                                  @endif
 
                                 {{ csrf_field()}}
                                 <div class="form-group">

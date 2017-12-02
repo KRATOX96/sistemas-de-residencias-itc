@@ -29,7 +29,10 @@ class cartaPresentacion extends Controller
 
 
     public function post(Request $request){
-        
+        //if($request->file('archivo1'))
+        if($request->file('archivo1')==null)
+            return back()->with('info','Debe seleccionar un archivo');
+
         $NODECONTROL=$request->input('NODECONTROL');
         $alumno= DB::table('alumnos')->where('NODECONTROL',$NODECONTROL)->first();
         $alumnos = alumnos::find($alumno->ALUMNID);
