@@ -27,6 +27,9 @@ class JDAMiddleware
 
             if(auth()->user()->tipoid ==4)
                 return redirect('comprobante'); 
+
+            if(auth()->user()->tipoid ==6)
+                return redirect('solicitudes2'); 
         return $next($request);
     }
 }

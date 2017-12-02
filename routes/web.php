@@ -56,3 +56,8 @@ Route::post('/asignarAsesor/{alumno}','asignarAsesor@post');
 Route::group(['middleware'=>'JSE'],function (){
 Route::get('/comprobante','Comprobante@index');
 });
+Route::group(['middleware'=>'JDV'],function (){
+Route::get('/solicitudes2','Solicitudes@listado2');
+Route::name('cartaPresentacion')->get('/cartaPresentacion/{alumno}','cartaPresentacion@index');
+Route::post('/cartaPresentacion/{alumno}','cartaPresentacion@post');
+});

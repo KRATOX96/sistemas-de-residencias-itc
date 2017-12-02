@@ -27,6 +27,10 @@ class AsesorMiddleware
 
             if(auth()->user()->tipoid ==5)
                 return redirect('solicitudes'); 
+            
+             if(auth()->user()->tipoid ==6)
+                return redirect('solicitudes2'); 
         return $next($request);
+
     }
 }

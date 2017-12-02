@@ -63,5 +63,6 @@ class Kernel extends HttpKernel
         'Cordinador'=> \App\Http\Middleware\CordinadorMiddleware::class,
         'JDA'=> \App\Http\Middleware\JDAMiddleware::class,
         'JSE'=> \App\Http\Middleware\JSEMiddleware::class,
+        'JDV'=> \App\Http\Middleware\JDVMiddleware::class,
     ];
 }

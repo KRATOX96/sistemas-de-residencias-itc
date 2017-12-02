@@ -42,6 +42,12 @@
         <a class="navbar-brand" href="{{url('/notificaciones')}}">Notificaciones</a>
         <a class="navbar-brand" href="{{url('/instrucciones')}}">Instrucciones</a>
         @endif
+
+         @if(auth()->user()->tipoid ==6)
+        <a class="navbar-brand" href="{{url('/solicitudes')}}">Solicitudes</a>
+        <a class="navbar-brand" href="{{url('/notificaciones')}}">Notificaciones</a>
+        <a class="navbar-brand" href="{{url('/instrucciones')}}">Instrucciones</a>
+        @endif
     </div>
 
 

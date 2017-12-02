@@ -43,6 +43,8 @@ class HomeController extends Controller
 
             if(auth()->user()->tipoid ==5)
                 return redirect('comprobante'); 
+                   if(auth()->user()->tipoid ==6)
+                return redirect('solicitudes2'); 
     }
 
     public function panel()
