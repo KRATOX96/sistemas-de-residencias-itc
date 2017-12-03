@@ -28,6 +28,26 @@ class SolicitarResidencia extends Controller
         {
          return view('SolicitarResidencia')->with(compact('alumnos','proyectos','validaciones'));
         }
+
+        if($alumnos->ESTADO==3)
+        {
+            return view('descargarCartaPresentacion')->with(compact('alumnos','proyectos','validaciones'));
+        }
+
+        if($alumnos->ESTADO==4)
+        {
+            return view('informeTecnico')->with(compact('alumnos','proyectos','validaciones'));
+        }
+
+        if($alumnos->ESTADO==5)
+        {
+             return view('calificacionExterno')->with(compact('alumnos','proyectos','validaciones'));
+        }
+
+        if($alumnos->ESTADO==8)
+        {
+             return view('fin')->with(compact('alumnos','proyectos','validaciones'));
+        }
         else
         {
             return view('avances')->with(compact('alumnos','proyectos','validaciones'));
@@ -49,6 +69,7 @@ class SolicitarResidencia extends Controller
 
     public function post(Request $request){
         $alumno = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
+        if($alumno->ESTADO==0){
         $nombreP=$request->input('NombreP');
         $proyecto=DB::table('proyectos')->where('PROYECTONOMBRE',$nombreP)->first();
         $proyectoId=$proyecto->PROYECTOID;
@@ -60,11 +81,10 @@ class SolicitarResidencia extends Controller
         $alumnos->save();
         $proyectos->save();
         return back();
-   }
+        }
 
-       public function postConfirmar(Request $request){
-    $alumno = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
-    if(Input::get('terminar')) {
+        if($alumno->ESTADO==3){
+        if(Input::get('terminar')) {
 
         $alumnos = alumnos::find($alumno->ALUMNID);
         $alumnos->ESTADO=4;
@@ -72,12 +92,39 @@ class SolicitarResidencia extends Controller
         return back();
       
       }
-      else if(Input::get('descargar')){
+        else if(Input::get('descargar')){
         return $this->forceDonwload();
       }
 
    }
-    public function forceDonwload()
+
+    if($alumno->ESTADO==4){
+        if($request->file('archivo2')==null)
+            return back()->with('info','Debe seleccionar un archivo');
+
+        $NODECONTROL=$request->input('NODECONTROL');
+        $alumno= DB::table('alumnos')->where('idusuario', auth()->user()->id)->first();
+        $alumnos = alumnos::find($alumno->ALUMNID);
+        $alumnos->archivo1=$request->file('archivo2')->store('public');;
+        $alumnos->ESTADO=5;       
+        $alumnos->save();
+     return back();
+    }
+
+        if($alumno->ESTADO==5){
+        if($request->file('archivo3')==null)
+            return back()->with('info','Debe seleccionar un archivo');
+        $NODECONTROL=$request->input('NODECONTROL');
+        $alumno= DB::table('alumnos')->where('idusuario', auth()->user()->id)->first();
+        $alumnos = alumnos::find($alumno->ALUMNID);
+        $alumnos->archivo3=$request->file('archivo3')->store('public');;
+        $alumnos->ESTADO=6;       
+        $alumnos->save();
+     return back();
+    }
+}
+
+ public function forceDonwload()
     {
                 $alumno = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
         $pathToFile = storage_path("app/$alumno->archivo1");
@@ -87,31 +134,7 @@ class SolicitarResidencia extends Controller
         return response()->download($pathToFile, $name, $headers);
     }
 
-        public function postInforme(Request $request){
-        if($request->file('archivo2')==null)
-            return back()->with('info','Debe seleccionar un archivo');
 
-        $NODECONTROL=$request->input('NODECONTROL');
-        $alumno= DB::table('alumnos')->where('NODECONTROL',$NODECONTROL)->first();
-        $alumnos = alumnos::find($alumno->ALUMNID);
-        $alumnos->archivo1=$request->file('archivo2')->store('public');;
-        $alumnos->ESTADO=5;       
-        $alumnos->save();
-     return back();
-   }
-
-           public function postCalificacion(Request $request){
-        if($request->file('archivo2')==null)
-            return back()->with('info','Debe seleccionar un archivo');
-
-        $NODECONTROL=$request->input('NODECONTROL');
-        $alumno= DB::table('alumnos')->where('idusuario', auth()->user()->id)->first();
-        $alumnos = alumnos::find($alumno->ALUMNID);
-        $alumnos->archivo2=$request->file('archivo2')->store('public');;
-        $alumnos->ESTADO=5;       
-        $alumnos->save();
-     return back();
-   }
 
 
 }
