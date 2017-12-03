@@ -29,6 +29,7 @@ $(function()
 	
 
 });
+
 function onClickAceptar()
 {
 	var project_id=$('#NombreProyecto').val();
@@ -39,6 +40,15 @@ else
 alert('No ha seleccionado ningun proyecto')
 }
 
+//funcion terminar residencia
+
+jQuery(document).ready(function($){
+     $('#terminar').on('submit',function(e){
+        if(!confirm('Do you want to delete this item?')){
+              e.preventDefault();
+        }
+      });
+});
 
 
 

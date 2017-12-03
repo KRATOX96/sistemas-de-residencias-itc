@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\proyectos;
 use App\alumnos;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 class SolicitarResidencia extends Controller
 {
     public function index()
@@ -59,5 +61,30 @@ class SolicitarResidencia extends Controller
         $proyectos->save();
         return back();
    }
+
+       public function postConfirmar(Request $request){
+    $alumno = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
+    if(Input::get('terminar')) {
+
+        $alumnos = alumnos::find($alumno->ALUMNID);
+        $alumnos->ESTADO=4;
+        $alumnos->save();
+        return back();
+      
+      }
+      else if(Input::get('descargar')){
+        return $this->forceDonwload();
+      }
+
+   }
+    public function forceDonwload()
+    {
+                $alumno = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
+        $pathToFile = storage_path("app/$alumno->archivo1");
+        $name = $alumno->NOMBREALUMN.' '.$alumno->APELLIDOSALUMN.'.pptx';
+        $headers = ['Content-Type: application/pptx'];
+
+        return response()->download($pathToFile, $name, $headers);
+    }
 
 }

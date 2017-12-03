@@ -41,6 +41,7 @@ Route::get('/avances','avances@index');
 Route::get('solicitarResidencia/{id}/info','SolicitarResidencia@infoProyecto');
 Route::post('/solicitarResidencia','solicitarResidencia@post');
 Route::get('/proyecto/{id}/','SolicitarResidencia@getSolicitud');
+Route::post('/solicitarResidencia','solicitarResidencia@postConfirmar');
 });
 
 Route::group(['middleware'=>'Asesor'],function (){
