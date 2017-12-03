@@ -87,4 +87,31 @@ class SolicitarResidencia extends Controller
         return response()->download($pathToFile, $name, $headers);
     }
 
+        public function postInforme(Request $request){
+        if($request->file('archivo2')==null)
+            return back()->with('info','Debe seleccionar un archivo');
+
+        $NODECONTROL=$request->input('NODECONTROL');
+        $alumno= DB::table('alumnos')->where('NODECONTROL',$NODECONTROL)->first();
+        $alumnos = alumnos::find($alumno->ALUMNID);
+        $alumnos->archivo1=$request->file('archivo2')->store('public');;
+        $alumnos->ESTADO=5;       
+        $alumnos->save();
+     return back();
+   }
+
+           public function postCalificacion(Request $request){
+        if($request->file('archivo2')==null)
+            return back()->with('info','Debe seleccionar un archivo');
+
+        $NODECONTROL=$request->input('NODECONTROL');
+        $alumno= DB::table('alumnos')->where('idusuario', auth()->user()->id)->first();
+        $alumnos = alumnos::find($alumno->ALUMNID);
+        $alumnos->archivo2=$request->file('archivo2')->store('public');;
+        $alumnos->ESTADO=5;       
+        $alumnos->save();
+     return back();
+   }
+
+
 }
