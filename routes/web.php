@@ -41,10 +41,13 @@ Route::get('/avances','avances@index');
 Route::get('solicitarResidencia/{id}/info','SolicitarResidencia@infoProyecto');
 Route::post('/solicitarResidencia','solicitarResidencia@post');
 Route::get('/proyecto/{id}/','SolicitarResidencia@getSolicitud');
+
 });
 
 Route::group(['middleware'=>'Asesor'],function (){
-Route::get('/calificar','Calificar@index');
+Route::get('/calificar','Calificar@listado1');
+Route::name('calificar')->get('/calificar/{alumno}','Calificar@index');
+Route::post('/calificar/{alumno}','Calificar@post');
 });
 
 Route::group(['middleware'=>'JDA'],function (){
