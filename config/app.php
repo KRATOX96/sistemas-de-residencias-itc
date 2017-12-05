@@ -137,6 +137,7 @@ return [
 
     'providers' => [
         'Laracasts\Utilities\JavaScript\JavaScriptServiceProvider',
+        'Chumper\Zipper\ZipperServiceProvider',
         /*
          * Laravel Framework Service Providers...
          */
@@ -229,7 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
-
+        'Zipper' => 'Chumper\Zipper\Zipper',
     ],
 
 ];

@@ -58,6 +58,9 @@ Route::post('/asignarAsesor/{alumno}','asignarAsesor@post');
 
 Route::group(['middleware'=>'JSE'],function (){
 Route::get('/comprobante','Comprobante@index');
+Route::name('comprobante')->get('/comprobante/{alumno}','Comprobante@mostrarComprobante');
+Route::name('comprobante')->post('/comprobante/{alumno}','Comprobante@elFin');
+
 });
 Route::group(['middleware'=>'JDV'],function (){
 Route::get('/solicitudes2','Solicitudes@listado2');

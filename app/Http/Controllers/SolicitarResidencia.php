@@ -128,8 +128,8 @@ class SolicitarResidencia extends Controller
     {
                 $alumno = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
         $pathToFile = storage_path("app/$alumno->archivo1");
-        $name = $alumno->NOMBREALUMN.' '.$alumno->APELLIDOSALUMN.'.pptx';
-        $headers = ['Content-Type: application/pptx'];
+        $name = $alumno->NOMBREALUMN.' '.$alumno->APELLIDOSALUMN.'.pdf';
+        $headers = ['Content-Type: application/pdf'];
 
         return response()->download($pathToFile, $name, $headers);
     }
