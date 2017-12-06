@@ -27,7 +27,7 @@ class Calificar extends Controller
     public function listado1()
     {
     		$asesor = DB::table('asesores')->where('USUARIOID', auth()->user()->id)->first();
-    		$alumnos= DB::table('alumnos')->select('alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','alumnos.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','proyectos.PROYECTOLUGAR','alumnos.ESTADO', 'asesores.ASESORID')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->join('asesores','alumnos.ASESORID', 'asesores.ASESORID')->where('asesores.ASESORID',$asesor->ASESORID)->where('alumnos.ESTADO',6)->paginate(5);
+    		$alumnos= DB::table('alumnos')->select('alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','carreras.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','proyectos.PROYECTOLUGAR','alumnos.ESTADO', 'asesores.ASESORID')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->join('asesores','alumnos.ASESORID', 'asesores.ASESORID')->join('carreras','carreras.CARRERAID','alumnos.CARRERAID')->where('asesores.ASESORID',$asesor->ASESORID)->where('alumnos.ESTADO',6)->paginate(5);
     	return view('calificar')->with('alumnos',$alumnos);
    		
     }
