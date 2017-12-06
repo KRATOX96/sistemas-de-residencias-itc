@@ -17,13 +17,18 @@ class Comprobante extends Controller
     }
     public function elFin($id){
     	    	
-    	 $alumnos= DB::table('alumnos')->select('alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','alumnos.plan','alumnos.creditos','carreras.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','alumnos.servicioS','alumnos.actividadesC','alumnos.situacionE','alumnos.semestre','proyectos.PROYECTOLUGAR','alumnos.ESTADO','alumnos.archivo1','alumnos.archivo2','alumnos.archivo3','alumnos.archivo4')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->join('carreras','carreras.CARRERAID','alumnos.CARRERAID')->where('alumnos.NODECONTROL',$id)->first();
-
+    	 $alumnos= DB::table('alumnos')->select('alumnos.ALUMNID','alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','alumnos.plan','alumnos.creditos','carreras.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','alumnos.servicioS','alumnos.actividadesC','alumnos.situacionE','alumnos.semestre','proyectos.PROYECTOLUGAR','alumnos.ESTADO','alumnos.archivo1','alumnos.archivo2','alumnos.archivo3','alumnos.archivo4')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->join('carreras','carreras.CARRERAID','alumnos.CARRERAID')->where('alumnos.NODECONTROL',$id)->first();
 
     if(Input::get('terminar')) {
-
-        $alumnos = alumnos::find($alumno->ALUMNID);
-        $alumnos->ESTADO=7;
+        $alumnos = alumnos::find($alumnos->ALUMNID);
+        $alumnos->ESTADO=8;
+        $alumnos->save();
+        return back();
+      
+      }
+        if(Input::get('rechazar')) {
+        $alumnos = alumnos::find($alumnos->ALUMNID);
+        $alumnos->ESTADO=9;
         $alumnos->save();
         return back();
       

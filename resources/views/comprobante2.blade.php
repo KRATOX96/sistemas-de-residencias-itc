@@ -61,7 +61,10 @@
                                 <div class="form-group">
                                
                                   <div class="col-lg-4 col-lg-offset-1">
-                                 <button type="submit" class="btn btn-primary" id="terminar" method="post" value="terminar" name="terminar" onclick="return confirm('En verdad has terminado las residencias?')">he terminado las residencias </button>
+                                 <button type="submit" class="btn btn-primary" id="terminar" method="post" value="terminar" name="terminar" onclick="return confirm('Estas seguro de aceptar la solicitud?')">Aprobar residencias </button>
+                                  </div>
+                                     <div class="col-lg-4 col-lg-offset-1">
+                                 <button type="submit" class="btn btn-danger" id="rechazar" method="post" value="rechazar" name="rechazar" onclick="return confirm('Estas seguro de rechazar la solicitud?')">Rechazar residencias </button>
                                   </div>
                                 </div>
 
