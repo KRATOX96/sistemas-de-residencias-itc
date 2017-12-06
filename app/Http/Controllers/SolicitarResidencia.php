@@ -43,10 +43,6 @@ class SolicitarResidencia extends Controller
              return view('calificacionExterno')->with(compact('alumnos','proyectos','validaciones'));
         }
 
-        if($alumnos->ESTADO==8)
-        {
-             return view('fin')->with(compact('alumnos','proyectos','validaciones'));
-        }
         else
         {
             return view('avances')->with(compact('alumnos','proyectos','validaciones'));

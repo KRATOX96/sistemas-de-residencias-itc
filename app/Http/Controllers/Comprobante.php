@@ -15,7 +15,7 @@ class Comprobante extends Controller
     	         		$alumnos= DB::table('alumnos')->select('alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','carreras.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','proyectos.PROYECTOLUGAR','alumnos.ESTADO')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->join('carreras','carreras.CARRERAID','alumnos.CARRERAID')->where('alumnos.ESTADO',7)->paginate(5);
     	return view('comprobante')->with('alumnos',$alumnos);
     }
-    public function elFin($id){
+    public function elFin($id,Request $request){
     	    	
     	 $alumnos= DB::table('alumnos')->select('alumnos.ALUMNID','alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','alumnos.plan','alumnos.creditos','carreras.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','alumnos.servicioS','alumnos.actividadesC','alumnos.situacionE','alumnos.semestre','proyectos.PROYECTOLUGAR','alumnos.ESTADO','alumnos.archivo1','alumnos.archivo2','alumnos.archivo3','alumnos.archivo4')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->join('carreras','carreras.CARRERAID','alumnos.CARRERAID')->where('alumnos.NODECONTROL',$id)->first();
 
@@ -27,11 +27,12 @@ class Comprobante extends Controller
       
       }
         if(Input::get('rechazar')) {
+        
         $alumnos = alumnos::find($alumnos->ALUMNID);
+        $alumnos->comentario=$request->input('textArea');
         $alumnos->ESTADO=9;
         $alumnos->save();
         return back();
-      
       }
         else if(Input::get('descargar1')){
         return $this->forceDonwload1($alumnos);
