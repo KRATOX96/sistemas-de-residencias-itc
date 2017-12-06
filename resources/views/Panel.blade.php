@@ -26,7 +26,7 @@
                             <h3 class="panel-title">Datos academicos</h3>
                         </div>
                         <div class="panel-body " style="background-color:#F0F8FF; ">
-                            <p><b>Carrera:</b> {{  $alumnos->CARRERANOMBRE}}</p>
+                            <p><b>Carrera:</b> {{  $NombreCarrera}}</p>
                             <p><b>Plan de estudios:</b> {{$alumnos->plan}}</p>
                             <p><b>Creditos acumulados:</b> {{$alumnos->creditos}}</p>
                             <p><b>Periodo Actual o Ultimo:</b> Semestre {{$alumnos->semestre}} </p>

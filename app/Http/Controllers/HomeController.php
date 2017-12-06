@@ -49,7 +49,9 @@ class HomeController extends Controller
 
     public function panel()
     {
-        $alumnos = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first();    
-         return view('panel')->with(compact('alumnos'));
+        $alumnos = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
+            $NombreCarrera=$alumnos->CARRERAID;
+            $NombreCarrera=DB::table('carreras')->where('CARRERAID',$NombreCarrera)->first(); 
+         return view('panel')->with(compact('alumnos'))->with('NombreCarrera',$NombreCarrera->CARRERANOMBRE);
     }
 }
