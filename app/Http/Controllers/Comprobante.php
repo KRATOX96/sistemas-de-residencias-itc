@@ -12,12 +12,12 @@ class Comprobante extends Controller
 {
         public function index()
     {
-    	         		$alumnos= DB::table('alumnos')->select('alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','alumnos.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','proyectos.PROYECTOLUGAR','alumnos.ESTADO')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->where('alumnos.ESTADO',7)->paginate(5);
+    	         		$alumnos= DB::table('alumnos')->select('alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','carreras.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','proyectos.PROYECTOLUGAR','alumnos.ESTADO')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->join('carreras','carreras.CARRERAID','alumnos.CARRERAID')->where('alumnos.ESTADO',7)->paginate(5);
     	return view('comprobante')->with('alumnos',$alumnos);
     }
     public function elFin($id){
     	    	
-    	 $alumnos= DB::table('alumnos')->select('alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','alumnos.plan','alumnos.creditos','alumnos.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','alumnos.servicioS','alumnos.actividadesC','alumnos.situacionE','alumnos.semestre','proyectos.PROYECTOLUGAR','alumnos.ESTADO','alumnos.archivo1')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->where('alumnos.NODECONTROL',$id)->first();
+    	 $alumnos= DB::table('alumnos')->select('alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','alumnos.plan','alumnos.creditos','carreras.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','alumnos.servicioS','alumnos.actividadesC','alumnos.situacionE','alumnos.semestre','proyectos.PROYECTOLUGAR','alumnos.ESTADO','alumnos.archivo1','alumnos.archivo2','alumnos.archivo3','alumnos.archivo4')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->join('carreras','carreras.CARRERAID','alumnos.CARRERAID')->where('alumnos.NODECONTROL',$id)->first();
 
 
     if(Input::get('terminar')) {
@@ -37,16 +37,12 @@ class Comprobante extends Controller
               else if(Input::get('descargar3')){
         return $this->forceDonwload3($alumnos);
       }
-              else if(Input::get('descargar4')){
-        return $this->forceDonwload4($alumnos);
-      }
-
   }
   public function mostrarComprobante($id)
   {
 
-  	    	 $alumnos= DB::table('alumnos')->select('alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.NOMBREALUMN','alumnos.plan','alumnos.creditos','alumnos.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','alumnos.servicioS','alumnos.actividadesC','alumnos.situacionE','alumnos.semestre','proyectos.PROYECTOLUGAR','alumnos.ESTADO')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->where('alumnos.NODECONTROL',$id)->first();
- 	
+  	    	 $alumnos= DB::table('alumnos')->select('alumnos.NODECONTROL','alumnos.APELLIDOSALUMN','alumnos.archivo2','alumnos.archivo3','alumnos.archivo4','alumnos.NOMBREALUMN','alumnos.plan','alumnos.creditos','carreras.CARRERANOMBRE','proyectos.PROYECTONOMBRE','proyectos.PROYECTODESCRIPCION','alumnos.servicioS','alumnos.actividadesC','alumnos.situacionE','alumnos.semestre','proyectos.PROYECTOLUGAR','alumnos.ESTADO')->join('proyectos','alumnos.PROYECTOID', 'proyectos.PROYECTOID')->join('carreras','carreras.CARRERAID','alumnos.CARRERAID')->where('alumnos.NODECONTROL',$id)->first();
+ 	    
     	 if($alumnos->ESTADO==7)
     {
         return view('comprobante2')->with('alumno',$alumnos);
@@ -59,41 +55,30 @@ class Comprobante extends Controller
 
    public function forceDonwload1($alumno)
     {
-        $pathToFile1 = storage_path("app/$alumno->archivo1");
-        $name1 = 'Carta de presentacion '.$alumno->NOMBREALUMN.' '.$alumno->APELLIDOSALUMN.'.pdf';
+        $pathToFile1 = storage_path("app/$alumno->archivo2");
+        $name1 = 'Informe tecnico '.$alumno->NOMBREALUMN.' '.$alumno->APELLIDOSALUMN.'.pdf';
         $headers1 = ['Content-Type: application/pdf'];
 
         return response()->download($pathToFile1, $name1, $headers1);
     }
 
-       public function forceDonwload2()
+       public function forceDonwload2($alumno)
     {
-        $alumno = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
-        $pathToFile = storage_path("app/$alumno->archivo2");
-        $name = $alumno->NOMBREALUMN.' '.$alumno->APELLIDOSALUMN.'.pdf';
-        $headers = ['Content-Type: application/pdf'];
+        $pathToFile1 = storage_path("app/$alumno->archivo3");
+        $name1 = 'Calificacion del asesor externo '.$alumno->NOMBREALUMN.' '.$alumno->APELLIDOSALUMN.'.pdf';
+        $headers1 = ['Content-Type: application/pdf'];
 
-        return response()->download($pathToFile, $name, $headers);
+        return response()->download($pathToFile1, $name1, $headers1);
 
     }
 
-       public function forceDonwload3()
+       public function forceDonwload3($alumno)
     {
-                $alumno = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
-        $pathToFile = storage_path("app/$alumno->archivo3");
-        $name = $alumno->NOMBREALUMN.' '.$alumno->APELLIDOSALUMN.'.pdf';
-        $headers = ['Content-Type: application/pdf'];
+        $pathToFile1 = storage_path("app/$alumno->archivo4");
+        $name1 = 'Calificacion del asesor interno '.$alumno->NOMBREALUMN.' '.$alumno->APELLIDOSALUMN.'.pdf';
+        $headers1 = ['Content-Type: application/pdf'];
 
-        return response()->download($pathToFile, $name, $headers);
+        return response()->download($pathToFile1, $name1, $headers1);
     }
 
-       public function forceDonwload4()
-    {
-                $alumno = DB::table('alumnos')->where('idusuario', auth()->user()->id)->first(); 
-        $pathToFile = storage_path("app/$alumno->archivo4");
-        $name = $alumno->NOMBREALUMN.' '.$alumno->APELLIDOSALUMN.'.pdf';
-        $headers = ['Content-Type: application/pdf'];
-
-        return response()->download($pathToFile, $name, $headers);
-    }
 }

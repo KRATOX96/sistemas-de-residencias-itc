@@ -104,7 +104,7 @@ class SolicitarResidencia extends Controller
         $NODECONTROL=$request->input('NODECONTROL');
         $alumno= DB::table('alumnos')->where('idusuario', auth()->user()->id)->first();
         $alumnos = alumnos::find($alumno->ALUMNID);
-        $alumnos->archivo1=$request->file('archivo2')->store('public');;
+        $alumnos->archivo2=$request->file('archivo2')->store('public');;
         $alumnos->ESTADO=5;       
         $alumnos->save();
      return back();

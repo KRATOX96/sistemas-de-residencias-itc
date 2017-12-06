@@ -9,7 +9,7 @@
             </div>
         </div>
 
-aqui va todo el cagadero(notificaciones)
+Esta pagina se encuentra en desarrollo(notificaciones)
 
 
 @endsection
