@@ -20,9 +20,8 @@ class SolicitarResidencia extends Controller
     		'se'=>$alumnos->situacionE,
     		'ss'=>$alumnos->servicioS
     		];
-    	$NombreCarrera=$alumnos->CARRERANOMBRE;
-    	$NombreCarrera;
-    	$NombreCarrera=DB::table('carreras')->where('CARRERANOMBRE',$NombreCarrera)->first();
+    	$NombreCarrera=$alumnos->CARRERAID;
+    	$NombreCarrera=DB::table('carreras')->where('CARRERAID',$NombreCarrera)->first();
     	$proyectos=proyectos::all()->where('semestre','<=', $alumnos->semestre)->where('CARRERAID',$NombreCarrera->CARRERAID)->where('NUMERO_ALUMNOS','>', 0);
         if($alumnos->ESTADO==0)
         {
